@@ -1,0 +1,15 @@
+.item{
+    padding:.25em;
+}
+.name{
+    padding-right:.25em;
+    justify-content: right;
+}
+.row{
+    display:flex;
+    flex-wrap: nowrap;
+    padding:.5em;
+    justify-content: center;
+}
+
+

@@ -1,18 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, Router} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import WorkoutConfig from './Workout/WorkoutConfig';
+import Tracker from './Workout/Tracker';
+import {Navbar, NavbarNav, NavItem, NavLink,
+  Dropdown, DropdownItem,DropdownToggle,DropdownMenu, NavbarToggler,NavbarBrand,coll} from 'mdbreact';
 
 class App extends Component {
+  state = {
+    users:[],
+    page: 'tracker'
+  }
+  componentDidMount(){
+
+    fetch('/users')
+    .then(res => res.json())
+    .then(users => this.setState({users}));
+    // fetch('/users/add',{
+    //   method:'POST'
+    // })
+  }
   render() {
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+    
+      {this.state.page ==='workoutConfig' ? <WorkoutConfig users={this.state.users}/> : null }
+      {this.state.page ==='tracker' ? <Tracker/> : null }
       </div>
     );
   }
