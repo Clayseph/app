@@ -23,7 +23,7 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "node ./bin/www react-scripts start",
+    "start": "PORT=3001 react-scripts start node server",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
