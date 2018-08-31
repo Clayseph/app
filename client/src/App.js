@@ -3,8 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import WorkoutConfig from './Workout/WorkoutConfig';
 import Tracker from './Workout/Tracker';
-import {Navbar, NavbarNav, NavItem, NavLink,
-  Dropdown, DropdownItem,DropdownToggle,DropdownMenu, NavbarToggler,NavbarBrand,coll} from 'mdbreact';
 
 class App extends Component {
   state = {
