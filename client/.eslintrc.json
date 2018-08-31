@@ -1,0 +1,28 @@
+{
+    "extends": [
+        "airbnb",
+        "plugin:import/errors",
+        "plugin:import/warnings"
+    ],
+    "rules": {
+        "comma-dangle": ["error", "only-multiline"],
+        "import/no-commonjs": 2,
+        "indent": [ "error", 4 ],
+        "max-len": ["error", { "code": 140 }],
+        "object-shorthand": 0,
+        "prefer-destructuring": [
+            "error", {
+                "array": false,
+                "object": false
+            },
+            {
+                "enforceForRenamedProperties": false
+            }
+        ],
+        "react/jsx-indent":false,
+        "react/jsx-one-expression-per-line":false,
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "template-curly-spacing": [ "error", "always" ]
+    }
+
+}
