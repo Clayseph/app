@@ -25,7 +25,7 @@ export default class Tracker extends Component {
 
     render() {
         return (
-            <div>
+            <div className="tracker">
                 <div>Workout Tracker</div>
                 {this.state.workoutList ? this.state.workoutList.map((workout, id) => (
                     <div className="row" key={id}>

@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import './App.css';
 import WorkoutConfig from './Workout/WorkoutConfig';
 import Tracker from './Workout/Tracker';
-import { AppBar, Drawer, IconButton, Divider} from '@material-ui/core';
+import { AppBar, Drawer, IconButton, Divider, ListItem, ListItemText} from '@material-ui/core';
 import {ChevronLeft, Menu} from '@material-ui/icons';
 
 class App extends Component {
@@ -13,6 +13,8 @@ class App extends Component {
   }
   constructor(props){
     super(props);
+    this.switchToTrackerPage = this.switchToTrackerPage.bind(this);
+    this.switchToConfigPage = this.switchToConfigPage.bind(this);
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
   }
@@ -24,6 +26,16 @@ class App extends Component {
     // fetch('/users/add',{
     //   method:'POST'
     // })
+  }
+  switchToTrackerPage(){
+    this.setState({
+      page:'tracker'
+    })
+  }
+  switchToConfigPage(){
+    this.setState({
+      page:'workoutConfig'
+    })
   }
   handleDrawerOpen(){
     this.setState({open: true});
@@ -54,10 +66,19 @@ class App extends Component {
           </IconButton>
         </div>
         <Divider/>
+        <ListItem button onClick={this.switchToConfigPage}>
+          <ListItemText primary="Add Workout" />
+        </ListItem>
+        <ListItem button onClick={this.switchToTrackerPage}>
+          <ListItemText primary="My Workouts" />
+        </ListItem>
         </Drawer>
-        Workout Tracker</AppBar>
-      {this.state.page ==='workoutConfig' ? <WorkoutConfig users={this.state.users}/> : null }
-      {this.state.page ==='tracker' ? <Tracker/> : null }
+        Workout Tracker
+        </AppBar>
+        <div className="content">
+          {this.state.page ==='workoutConfig' ? <WorkoutConfig users={this.state.users}/> : null }
+          {this.state.page ==='tracker' ? <Tracker/> : null }
+        </div>
       </div>
     );
   }

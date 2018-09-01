@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Tracker.css';
 
 export default class WorkoutConfig extends Component {
     constructor() {
@@ -50,7 +51,7 @@ export default class WorkoutConfig extends Component {
 
     render() {
         return (
-            <div>
+            <div className="configPage">
                 <div>Add a Workout</div>
                 <div>Name: <input onChange={this.updateWorkoutName} /></div>
                 <div>Weight: <input onChange={this.updateWeight} /></div>
