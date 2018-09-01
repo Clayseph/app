@@ -1,13 +1,20 @@
-import React, { Component, Router} from 'react';
-import logo from './logo.svg';
+import React, { Component} from 'react';
 import './App.css';
 import WorkoutConfig from './Workout/WorkoutConfig';
 import Tracker from './Workout/Tracker';
+import { AppBar, Drawer, IconButton, Divider} from '@material-ui/core';
+import {ChevronLeft, Menu} from '@material-ui/icons';
 
 class App extends Component {
   state = {
     users:[],
-    page: 'tracker'
+    page: 'tracker',
+    open: true
+  }
+  constructor(props){
+    super(props);
+    this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+    this.handleDrawerClose = this.handleDrawerClose.bind(this);
   }
   componentDidMount(){
 
@@ -18,11 +25,37 @@ class App extends Component {
     //   method:'POST'
     // })
   }
+  handleDrawerOpen(){
+    this.setState({open: true});
+  }
+  handleDrawerClose(){
+    this.setState({open: false});
+  }
   render() {
 
     return (
       <div className="App">
-    
+      <AppBar>
+      <IconButton
+                color="inherit"
+                aria-label="Open drawer"
+                onClick={this.handleDrawerOpen}
+              >
+                <Menu />
+              </IconButton>
+        <Drawer
+        variant="persistent"
+        anchor={'left'}
+        open={this.state.open}
+        >
+        <div>
+          <IconButton onClick={this.handleDrawerClose}>
+            <ChevronLeft/>
+          </IconButton>
+        </div>
+        <Divider/>
+        </Drawer>
+        Workout Tracker</AppBar>
       {this.state.page ==='workoutConfig' ? <WorkoutConfig users={this.state.users}/> : null }
       {this.state.page ==='tracker' ? <Tracker/> : null }
       </div>
