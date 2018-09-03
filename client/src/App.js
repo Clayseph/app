@@ -22,9 +22,9 @@ class App extends Component {
     }
 
     componentDidMount() {
-        fetch('/users')
-            .then(res => res.json())
-            .then(users => this.setState({ users }));
+        // fetch('/users')
+        //     .then(res => res.json())
+        //     .then(users => this.setState({ users }));
     // fetch('/users/add',{
     //   method:'POST'
     // })
@@ -55,16 +55,16 @@ class App extends Component {
             <div className="App">
                 <AppBar>
                     <IconButton
-                        color="inherit"
-                        aria-label="Open drawer"
-                        onClick={this.handleDrawerOpen}
+                      color="inherit"
+                      aria-label="Open drawer"
+                      onClick={this.handleDrawerOpen}
                     >
                         <Menu />
                     </IconButton>
                     <Drawer
-                        variant="persistent"
-                        anchor="left"
-                        open={this.state.open}
+                      variant="persistent"
+                      anchor="left"
+                      open={this.state.open}
                     >
                         <div>
                             <IconButton onClick={this.handleDrawerClose}>
